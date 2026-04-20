@@ -1,0 +1,4 @@
+interface:
+  display_name: "市场数据工具"
+  short_description: "跨市场行情数据抓取技能，封装 A 股、港股和美股数据源"
+  default_prompt: "使用 $financial-market-data-tools 获取 A 股、港股或美股的最新行情数据。"

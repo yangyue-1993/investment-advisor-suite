@@ -1,0 +1,48 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "financial-market-data-tools"
+version = "1.0.0"
+description = "Cross-market financial market data tools for A-shares, HK stocks, and US stocks"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [
+    { name = "Investment Advisor Suite" }
+]
+keywords = ["finance", "market-data", "stocks", "investment", "a-shares", "hong-kong", "us-stocks"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Financial and Investment Industry",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+    "requests>=2.28.0",
+]
+
+[project.optional-dependencies]
+futu = ["futu-api>=2.0.0"]
+yfinance = ["yfinance>=0.2.0"]
+all = ["futu-api>=2.0.0", "yfinance>=0.2.0"]
+
+[project.scripts]
+tushare-pro = "scripts.tushare_pro_tool:main"
+futu-opend = "scripts.futu_opend_tool:main"
+yahoo-market = "scripts.yahoo_market_tool:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["scripts"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/SKILL.md",
+    "/agents",
+    "/references",
+]

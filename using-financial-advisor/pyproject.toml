@@ -1,0 +1,37 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "using-financial-advisor"
+version = "1.0.0"
+description = "Chinese-first investment advisory skill with task routing and risk boundaries"
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [
+    { name = "Investment Advisor Suite" }
+]
+keywords = ["finance", "investment", "advisor", "portfolio", "risk-management"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Financial and Investment Industry",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+# No runtime Python dependencies - this is an instruction-only skill
+dependencies = []
+
+[project.optional-dependencies]
+data-tools = ["financial-market-data-tools>=1.0.0"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/SKILL.md",
+    "/agents",
+    "/references",
+]
